@@ -1,10 +1,5 @@
-import { component$ } from '@builder.io/qwik';
-
+import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
-  return (
-    <div>
-      Change me please!
-    </div>
-  );
+  return <div>Llamas Rule!</div>;
 });
