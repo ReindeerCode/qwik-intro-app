@@ -4,15 +4,17 @@ export default component$(() => {
 
   
 
-  return <div>
-    This is Page 1
-
-    <hr />
-    
-    <input type="text" placeholder="Type your search"/>
-    
-    <hr />
-    
-    <div>You typed: </div>
-  </div>
+  return (
+    <div>
+      This is Page 1
+      <hr />
+      <input
+        type="text"
+        placeholder="Type your search"
+        onInput$={console.log('keyup')}
+      />
+      <hr />
+      <div>You typed: </div>
+    </div>
+  );
 });
