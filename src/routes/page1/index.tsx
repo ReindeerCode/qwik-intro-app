@@ -1,8 +1,9 @@
-import { component$ } from '@builder.io/qwik';
+import { component$,  } from '@builder.io/qwik';
+
 
 export default component$(() => {
 
-  
+  // onInput$={console.log('keyup')}
 
   return (
     <div>
@@ -11,7 +12,7 @@ export default component$(() => {
       <input
         type="text"
         placeholder="Type your search"
-        onInput$={console.log('keyup')}
+        onKeyUp$={() => console.log(KeyboardEvent)}
       />
       <hr />
       <div>You typed: </div>
