@@ -5,6 +5,7 @@ export default component$(() => {
     <>
       <Test />
       <div>Llamas Rule!</div>
+      <HelloButton />
     </>
   );
 });
