@@ -12,7 +12,7 @@ export default component$(() => {
       <input
         type="text"
         placeholder="Type your search"
-        onKeyUp$={() => console.log(KeyboardEvent)}
+        onKeyUp$={(event) => console.log(event.key)}
       />
       <hr />
       <div>You typed: </div>
