@@ -11,7 +11,7 @@ export default component$(() => {
         onKeyUp$={(event) => console.log(event.key)}
       />
       <hr />
-      <div>You typed: </div>
+      <Exercise4ButChangeTheName />
     </div>
   );
 });
