@@ -1,10 +1,6 @@
-import { component$,  } from '@builder.io/qwik';
-
+import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
-
-  // onInput$={console.log('keyup')}
-
   return (
     <div>
       This is Page 1
@@ -18,4 +14,8 @@ export default component$(() => {
       <div>You typed: </div>
     </div>
   );
+});
+
+export const Exercise4ButChangeTheName = component$(() => {
+  return <div>You typed: </div>;
 });
