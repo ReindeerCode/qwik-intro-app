@@ -1,8 +1,9 @@
 import { component$, useSignal } from "@builder.io/qwik";
+import { Projector } from "./projector";
 
 export default component$(() => {
 
-  const isProjectorVisibleSignal = useSignal(false)
+  const messageSignal = useSignal('')
     
 
   return (
@@ -12,27 +13,27 @@ export default component$(() => {
       <input
         type="text"
         placeholder="Type your search"
-        onInput$={() => {
-          isProjectorVisibleSignal.value = !isProjectorVisibleSignal.value;
+        onInput$={(event) => {
+          messageSignal.value = (event.target as HTMLInputElement).value
         }}
       />
-      {isProjectorVisibleSignal.value ? <Projector /> : <TestText />}
+      
       <hr />
+
+      <Projector message={messageSignal.value}/>
     </div>
   );
 });
 
-export const Projector = component$(() => {
-  return <div>You typed:  </div>;
-});
 
-export const TestText = component$(() => {
-  return <div>Test Text will DISPLAY</div>
-})
+
+
+//You originally thought the assignment was to simply have the "You typed:" message appear after test is entered into the input box, and to do this with a new component. I was supposed to create that component in a separate file and pass it into this file, and have it so the users input is shown after the "You typed:" message.
+
+// Below is your original solution, corrected code is above
 
 // export default component$(() => {
-//   const Exersize4Signal = useSignal(false);
-//   Exersize4Signal.value;
+//   const isProjectorVisibleSignal = useSignal(false);
 
 //   return (
 //     <div>
@@ -41,10 +42,17 @@ export const TestText = component$(() => {
 //       <input
 //         type="text"
 //         placeholder="Type your search"
-//         onKeyUp$={(event) => console.log(event.key)}
+//         onInput$={() => {
+//           isProjectorVisibleSignal.value = !isProjectorVisibleSignal.value;
+//         }}
 //       />
+//       {isProjectorVisibleSignal.value ? <Projector /> : null}
 //       <hr />
-//       <Projector />
 //     </div>
 //   );
 // });
+
+// export const Projector = component$(() => {
+//   return <div>You typed: </div>;
+// });
+
