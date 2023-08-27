@@ -2,7 +2,7 @@ import { component$, useSignal } from "@builder.io/qwik";
 
 export default component$(() => {
 
-  const isProjectorVisible = useSignal(false)
+  const isProjectorVisibleSignal = useSignal(false)
     
 
   return (
@@ -13,11 +13,10 @@ export default component$(() => {
         type="text"
         placeholder="Type your search"
         onInput$={() => {
-          isProjectorVisible.value = true;
+          isProjectorVisibleSignal.value = !isProjectorVisibleSignal.value;
         }}
-        
       />
-      
+      {isProjectorVisibleSignal.value ? <Projector /> :null}
       <hr />
     </div>
   );
