@@ -1,6 +1,10 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 
 export default component$(() => {
+
+  const isProjectorVisible = useSignal(false)
+    
+
   return (
     <div>
       This is Page 1
@@ -8,14 +12,36 @@ export default component$(() => {
       <input
         type="text"
         placeholder="Type your search"
-        onKeyUp$={(event) => console.log(event.key)}
+        onInput$={() => {
+          isProjectorVisible.value = true;
+        }}
+        
       />
+      
       <hr />
-      <Exercise4ButChangeTheName />
     </div>
   );
 });
 
-export const Exercise4ButChangeTheName = component$(() => {
-  return <div>You typed: </div>;
+export const Projector = component$(() => {
+  return <div>You typed:  </div>;
 });
+
+// export default component$(() => {
+//   const Exersize4Signal = useSignal(false);
+//   Exersize4Signal.value;
+
+//   return (
+//     <div>
+//       This is Page 1
+//       <hr />
+//       <input
+//         type="text"
+//         placeholder="Type your search"
+//         onKeyUp$={(event) => console.log(event.key)}
+//       />
+//       <hr />
+//       <Projector />
+//     </div>
+//   );
+// });
