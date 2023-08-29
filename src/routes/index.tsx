@@ -1,19 +1,24 @@
-import { component$ } from "@builder.io/qwik";
+import { Slot, component$, useSignal } from "@builder.io/qwik";
 
 export default component$(() => {
+
+const isTestText1Visable = useSignal(false)
+
   return (
     <>
-      <Test />
-      <div>Llamas Rule!</div>
-      <HelloButton />
+            <button onClick$={() => isTestText1Visable.value = !isTestText1Visable.value }>Button Text</button>
+      {isTestText1Visable.value ? <Test /> :null}
     </>
   );
 });
 
 export const Test = component$(() => {
-  return <h1>Here is a New H1 Tag</h1>;
+  return (
+    <>
+      <h3>Here is the test text</h3>
+      
+    </>
+  );
 });
 
-export const HelloButton = component$(() => {
-  return <button onClick$={() => console.log("Hello")}>Click Me, Now!</button>;
-});
+
