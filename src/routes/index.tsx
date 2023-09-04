@@ -16,7 +16,7 @@ export default component$(() => {
         <Test>
           <h3>
             This is an example of using QWIK's "Slot" component to do content
-            projection.
+            projection. And, will appear on bottom. 
           </h3>
         </Test>
       ) : null}
@@ -27,7 +27,9 @@ export default component$(() => {
 export const Test = component$(() => {
   return (
     <>
-      <h3>This is the text contained in the Test component</h3>
+      <h3>
+        This is the text contained in the Test component, and will appear on top because I placed the Slot tag below this text in the editor.
+      </h3>
       <Slot />
     </>
   );
