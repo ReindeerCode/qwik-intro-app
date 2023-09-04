@@ -17,7 +17,9 @@ export default component$(() => {
       />
       <hr />
       <Projector message={messageSignal.value} >
+        {/* Through the use of a Slot tag on the projector.jsx file, the following is now displayed on the DOM through content projection instead of stadic text. */}
       Your message is:
+    
       </Projector>
     </div>
   );
