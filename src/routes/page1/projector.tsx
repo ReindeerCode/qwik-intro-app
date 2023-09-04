@@ -5,5 +5,5 @@ export interface ProjectorProps {
 }
 
 export const Projector = component$((props:ProjectorProps) => {
-    return <div><Slot/> {props.message}</div>;
+    return <div>You typed:{props.message}</div>;
 })

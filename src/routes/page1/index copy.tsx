@@ -1,3 +1,5 @@
+// as part of an exercise, I added the "Your message is:" text in the below Projector component. They had me revert the component to the pre exercise condition at the end of the exercise, but I wanted to keep the change and notes somewhere so I created this copy file and a copy of the projector file.
+
 import { Slot, component$, useSignal } from "@builder.io/qwik";
 import { Projector } from "./projector";
 
@@ -16,8 +18,10 @@ export default component$(() => {
         }}
       />
       <hr />
-      <Projector message={messageSignal.value} />
-    
+      <Projector message={messageSignal.value} >
+        {/* Through the use of a Slot tag on the projector.jsx file, the following is now displayed on the DOM through content projection instead of stadic text. */}
+      Your message is:
+          </Projector>
     </div>
   );
 });
