@@ -1,9 +1,15 @@
-import { Slot, component$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 
 export interface ProjectorProps {
-    message: string;
+  message: string;
+  color: string;
 }
 
-export const Projector = component$((props:ProjectorProps) => {
-    return <div>You typed:{props.message}</div>;
-})
+export const Projector = component$((props: ProjectorProps) => {
+  return (
+    <div>
+      You typed:
+      <span style={"color:" + props.color}>{props.message}</span>
+    </div>
+  );
+});

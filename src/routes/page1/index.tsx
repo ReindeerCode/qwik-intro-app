@@ -1,11 +1,21 @@
-import { Slot, component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, useTask$ } from "@builder.io/qwik";
 import { Projector } from "./projector";
 
 export default component$(() => {
   const messageSignal = useSignal("");
+  const llamaRedSignal = useSignal("black");
+  
+  useTask$(({ track }) => {
+    track(() => messageSignal.value);
+    if (messageSignal.value.indexOf("llama" || "Llama" || "LLAMA") !== -1) {
+      llamaRedSignal.value = "red";
+    } else {
+      llamaRedSignal.value = "black";
+    }
+  });
 
   return (
-    <div>
+    <>
       This is Page 1
       <hr />
       <input
@@ -16,36 +26,7 @@ export default component$(() => {
         }}
       />
       <hr />
-      <Projector message={messageSignal.value} />
-    
-    </div>
+      <Projector message={messageSignal.value} color={llamaRedSignal.value} />
+    </>
   );
 });
-
-//You originally thought the assignment was to simply have the "You typed:" message appear after test is entered into the input box, and to do this with a new component. I was supposed to create that component in a separate file and pass it into this file, and have it so the users input is shown after the "You typed:" message.
-
-// Below is your original solution, corrected code is above
-
-// export default component$(() => {
-//   const isProjectorVisibleSignal = useSignal(false);
-
-//   return (
-//     <div>
-//       This is Page 1
-//       <hr />
-//       <input
-//         type="text"
-//         placeholder="Type your search"
-//         onInput$={() => {
-//           isProjectorVisibleSignal.value = !isProjectorVisibleSignal.value;
-//         }}
-//       />
-//       {isProjectorVisibleSignal.value ? <Projector /> : null}
-//       <hr />
-//     </div>
-//   );
-// });
-
-// export const Projector = component$(() => {
-//   return <div>You typed: </div>;
-// });
