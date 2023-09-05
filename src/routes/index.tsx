@@ -1,10 +1,5 @@
-import {
-  Signal,
-  Slot,
-  component$,
-  useSignal,
-  useTask$,
-} from "@builder.io/qwik";
+import type { Signal } from "@builder.io/qwik";
+import { Slot, component$, useSignal, useTask$ } from "@builder.io/qwik";
 
 export default component$(() => {
   const isMiskoVisibleSignal = useSignal(false);
