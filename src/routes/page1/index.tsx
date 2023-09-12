@@ -26,7 +26,7 @@ export default component$(() => {
         }}
       />
       <hr />
-      <Projector message={messageSignal.value} color={llamaRedSignal.value} />
+      <Projector />
     </>
   );
 });
