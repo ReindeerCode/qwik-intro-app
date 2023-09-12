@@ -42,11 +42,8 @@ export const BeerGiver = component$(() => {
   const gotBeerSignal = useContext(beerContextID);
   return (
     <>
+      <hr />
 
-      <BeerSelector/>
-
-    <hr />
-    
       <button
         onClick$={() => {
           gotBeerSignal.value = true;
@@ -66,6 +63,7 @@ export const Misko = component$(() => {
         because I placed the Slot tag below this text in the editor.
       </h5>
       <Slot />
+      <BeerSelector />
     </>
   );
 });
