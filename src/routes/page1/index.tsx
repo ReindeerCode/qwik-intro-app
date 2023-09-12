@@ -1,9 +1,19 @@
-import { component$, useSignal, useTask$ } from "@builder.io/qwik";
+import { component$, useContextProvider, useSignal, useTask$ } from "@builder.io/qwik";
 import { Projector } from "./projector";
+import { searchContextId } from "./search_context_id";
 
 export default component$(() => {
-  const messageSignal = useSignal("");
-  const llamaRedSignal = useSignal("black");
+
+    const messageSignal = useSignal("");
+    const llamaRedSignal = useSignal("black");
+
+
+  useContextProvider(searchContextId,
+    {
+    messageSignal,
+    llamaRedSignal
+  })
+
   
   useTask$(({ track }) => {
     track(() => messageSignal.value);
