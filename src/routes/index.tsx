@@ -8,6 +8,7 @@ import {
   useTask$,
 } from "@builder.io/qwik";
 import { beerContextID } from "./beer_context_id";
+import { BeerSelector } from "./beer_selector";
 
 export default component$(() => {
   const isMiskoVisibleSignal = useSignal(false);
@@ -42,6 +43,11 @@ export const BeerGiver = component$(() => {
   const gotBeerSignal = useContext(beerContextID);
   return (
     <>
+
+      <BeerSelector/>
+
+    <hr />
+    
       <button
         onClick$={() => {
           gotBeerSignal.value = true;

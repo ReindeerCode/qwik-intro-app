@@ -17,7 +17,7 @@ export default component$(() => {
   
   useTask$(({ track }) => {
     track(() => messageSignal.value);
-    if (messageSignal.value.indexOf("llama" || "Llama" || "LLAMA") !== -1) {
+    if (messageSignal.value.indexOf("llama") !== -1) {
       llamaRedSignal.value = "red";
     } else {
       llamaRedSignal.value = "black";
